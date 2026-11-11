@@ -1,11 +1,11 @@
-import type { Lesson } from "../../../domain/lesson";
+import type { Lesson } from "../../../../domain/lesson";
 
 export const nervousSystem: Lesson = {
   id: "nervous-system",
   title: "El sistema nervioso",
   subjectId: "biology",
   emoji: "🧠",
-  minGrade: 6,
+  year: 4,
   keywords: ["neurona", "neuronas", "cerebro", "médula espinal", "nervios", "reflejo", "sinapsis", "encéfalo", "SNC", "SNP"],
   hook: "Tocas algo caliente y retiras la mano antes de pensar \"¡quema!\". ¿Cómo lo hace tu cuerpo tan rápido? Esa es la magia del sistema nervioso.",
   summary:

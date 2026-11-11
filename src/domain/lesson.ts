@@ -1,20 +1,34 @@
-export type SubjectId = "biology" | "math" | "earth-science" | "history" | "physics" | "language";
+/** Año de Educación Media General (Venezuela): 1.º to 5.º año. */
+export type SchoolYear = 1 | 2 | 3 | 4 | 5;
 
+export const SCHOOL_YEARS: SchoolYear[] = [1, 2, 3, 4, 5];
+
+export type SubjectId = string;
+
+/** An "área de formación" of the official study plan. */
 export interface Subject {
   id: SubjectId;
   name: string;
   emoji: string;
   color: string;
+  description: string;
+  /** Weekly hours per año, per the official plan. Años not listed are not taught. */
+  hoursByYear: Partial<Record<SchoolYear, number>>;
 }
 
-export interface TopicSummary {
+export interface TopicInfo {
   id: string;
   title: string;
   subjectId: SubjectId;
+  /** Año where the topic is taught. */
+  year: SchoolYear;
   keywords: string[];
   emoji: string;
-  /** Lowest school grade (1-12) the article is written for. */
-  minGrade: number;
+}
+
+export interface TopicSummary extends TopicInfo {
+  /** False for catalog entries whose lesson is not written yet ("Próximamente"). */
+  hasLesson: boolean;
 }
 
 export interface KeyPoint {
@@ -56,7 +70,7 @@ export interface Resource {
   source: string;
 }
 
-export interface Lesson extends TopicSummary {
+export interface Lesson extends TopicInfo {
   hook: string;
   summary: string;
   keyPoints: KeyPoint[];

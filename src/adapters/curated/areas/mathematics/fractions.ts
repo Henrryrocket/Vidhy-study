@@ -1,11 +1,11 @@
-import type { Lesson } from "../../../domain/lesson";
+import type { Lesson } from "../../../../domain/lesson";
 
 export const fractions: Lesson = {
   id: "fractions",
   title: "Fracciones",
-  subjectId: "math",
+  subjectId: "mathematics",
   emoji: "🍕",
-  minGrade: 4,
+  year: 1,
   keywords: ["numerador", "denominador", "fracciones equivalentes", "simplificar", "sumar fracciones", "quebrados", "partes de un entero"],
   hook: "Si una pizza tiene 8 porciones y te comes 3, ¿qué parte te comiste? Las fracciones son el idioma para hablar de partes.",
   summary:

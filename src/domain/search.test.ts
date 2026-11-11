@@ -2,9 +2,9 @@ import { normalizeText, searchTopics } from "./search";
 import type { TopicSummary } from "./lesson";
 
 const topics: TopicSummary[] = [
-  { id: "nervous-system", title: "El sistema nervioso", subjectId: "biology", keywords: ["neurona", "cerebro", "médula"], emoji: "🧠", minGrade: 6 },
-  { id: "photosynthesis", title: "La fotosíntesis", subjectId: "biology", keywords: ["plantas", "clorofila"], emoji: "🌱", minGrade: 5 },
-  { id: "fractions", title: "Fracciones", subjectId: "math", keywords: ["numerador", "denominador"], emoji: "🍕", minGrade: 5 },
+  { id: "nervous-system", title: "El sistema nervioso", subjectId: "biology", keywords: ["neurona", "cerebro", "médula"], emoji: "🧠", year: 4, hasLesson: true },
+  { id: "photosynthesis", title: "La fotosíntesis", subjectId: "biology", keywords: ["plantas", "clorofila"], emoji: "🌱", year: 1, hasLesson: true },
+  { id: "fractions", title: "Fracciones", subjectId: "math", keywords: ["numerador", "denominador"], emoji: "🍕", year: 1, hasLesson: true },
 ];
 
 describe("normalizeText", () => {
@@ -23,7 +23,7 @@ describe("searchTopics", () => {
   });
 
   it("ranks title matches above keyword matches", () => {
-    const extra: TopicSummary = { id: "brain-food", title: "Cerebro y nutrición", subjectId: "biology", keywords: [], emoji: "🥦", minGrade: 6 };
+    const extra: TopicSummary = { id: "brain-food", title: "Cerebro y nutrición", subjectId: "biology", keywords: [], emoji: "🥦", year: 4, hasLesson: true };
     expect(searchTopics([...topics, extra], "cerebro").map((t) => t.id)).toEqual(["brain-food", "nervous-system"]);
   });
 

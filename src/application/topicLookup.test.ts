@@ -1,7 +1,7 @@
 import { lookupTopic } from "./topicLookup";
 import { CuratedContentProvider } from "../adapters/curated/CuratedContentProvider";
 import type { LessonGenerator } from "../ports";
-import { nervousSystem } from "../adapters/curated/articles/nervousSystem";
+import { nervousSystem } from "../adapters/curated/areas/biology/nervousSystem";
 
 const profile = { name: "Ana", age: 13, grade: 8, interests: ["sports" as const] };
 const content = new CuratedContentProvider();

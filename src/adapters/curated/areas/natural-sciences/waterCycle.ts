@@ -1,11 +1,11 @@
-import type { Lesson } from "../../../domain/lesson";
+import type { Lesson } from "../../../../domain/lesson";
 
 export const waterCycle: Lesson = {
   id: "water-cycle",
   title: "El ciclo del agua",
-  subjectId: "earth-science",
+  subjectId: "natural-sciences",
   emoji: "💧",
-  minGrade: 4,
+  year: 1,
   keywords: ["ciclo hidrológico", "evaporación", "condensación", "precipitación", "lluvia", "nubes", "infiltración", "escorrentía", "transpiración"],
   hook: "El agua que bebes hoy pudo haber estado en una nube, en el océano o incluso en un glaciar hace miles de años. El agua de la Tierra está siempre viajando.",
   summary:

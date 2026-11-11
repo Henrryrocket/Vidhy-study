@@ -1,4 +1,4 @@
-import type { Interest } from "./lesson";
+import type { Interest, SchoolYear } from "./lesson";
 
 export interface StudentProfile {
   name: string;
@@ -35,4 +35,10 @@ export type ReadingLevel = "basic" | "advanced";
 
 export function readingLevel(profile: StudentProfile): ReadingLevel {
   return profile.grade >= 8 ? "advanced" : "basic";
+}
+
+/** Año of Educación Media General (Venezuela): 7.º grado = 1.er año … 11.º grado = 5.º año. */
+export function schoolYearFor(profile: StudentProfile): SchoolYear | null {
+  const year = profile.grade - 6;
+  return year >= 1 && year <= 5 ? (year as SchoolYear) : null;
 }

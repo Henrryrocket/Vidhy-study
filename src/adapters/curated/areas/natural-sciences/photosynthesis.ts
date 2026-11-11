@@ -1,11 +1,11 @@
-import type { Lesson } from "../../../domain/lesson";
+import type { Lesson } from "../../../../domain/lesson";
 
 export const photosynthesis: Lesson = {
   id: "photosynthesis",
   title: "La fotosíntesis",
-  subjectId: "biology",
+  subjectId: "natural-sciences",
   emoji: "🌱",
-  minGrade: 5,
+  year: 1,
   keywords: ["plantas", "clorofila", "cloroplasto", "oxígeno", "glucosa", "luz solar", "dióxido de carbono", "nutrición vegetal"],
   hook: "Cada vez que respiras, usas oxígeno que, en gran parte, fabricó una planta o un alga. ¿Cómo convierten la luz del sol en comida y aire?",
   summary:
