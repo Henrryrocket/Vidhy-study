@@ -1,0 +1,136 @@
+import type { Lesson } from "../../../../domain/lesson";
+
+export const newtonLaws: Lesson = {
+  id: "phys-newton-laws",
+  title: "Leyes de Newton",
+  subjectId: "physics",
+  emoji: "🍎",
+  year: 4,
+  keywords: ["leyes de newton", "inercia", "fuerza", "f = m·a", "acción y reacción", "dinámica", "newton"],
+  hook: "¿Por qué te vas hacia adelante cuando el autobús frena de golpe? ¿Cómo despega un cohete si no tiene contra qué empujar? Tres leyes de Isaac Newton lo explican.",
+  summary:
+    "Las tres leyes de Newton explican cómo las fuerzas cambian el movimiento de los cuerpos. Primera ley (inercia): un cuerpo sigue en reposo o en movimiento rectilíneo uniforme si la fuerza neta sobre él es cero. Segunda ley: la fuerza neta es igual a la masa por la aceleración (F = m · a). Tercera ley (acción y reacción): si un cuerpo ejerce una fuerza sobre otro, el segundo ejerce sobre el primero una fuerza igual y de sentido contrario. La fuerza se mide en newtons (N).",
+  keyPoints: [
+    {
+      title: "Primera ley: inercia",
+      text: "Los cuerpos tienden a mantener su estado de movimiento. Por eso, si el autobús frena, tu cuerpo sigue moviéndose hacia adelante.",
+      deeper: "La inercia depende de la masa: mientras más masa, más cuesta cambiar el movimiento de un cuerpo.",
+    },
+    {
+      title: "Segunda ley: F = m · a",
+      text: "Una fuerza neta produce una aceleración proporcional a ella e inversamente proporcional a la masa. Con 6 N sobre 2 kg, la aceleración es 3 m/s².",
+      deeper: "1 newton es la fuerza que le da a 1 kg una aceleración de 1 m/s²: 1 N = 1 kg · m/s².",
+    },
+    {
+      title: "Tercera ley: acción y reacción",
+      text: "Las fuerzas siempre aparecen en pares: cuando nadas empujas el agua hacia atrás y el agua te empuja hacia adelante.",
+      deeper: "Acción y reacción actúan sobre cuerpos distintos; por eso no se anulan entre sí.",
+    },
+    {
+      title: "El peso es una fuerza",
+      text: "El peso es la fuerza con que la Tierra atrae a un cuerpo: P = m · g, con g ≈ 9,8 m/s². Una persona de 50 kg pesa unos 490 N.",
+      deeper: "La masa (kg) es la misma en cualquier lugar; el peso (N) cambia: en la Luna, donde g ≈ 1,6 m/s², pesarías unas seis veces menos.",
+    },
+  ],
+  diagram: {
+    id: "root",
+    label: "Leyes de Newton",
+    detail: "Fuerzas y movimiento",
+    children: [
+      { id: "l1", label: "1.ª Inercia", detail: "Sin fuerza neta, no cambia el movimiento" },
+      { id: "l2", label: "2.ª F = m · a", detail: "La fuerza produce aceleración" },
+      { id: "l3", label: "3.ª Acción y reacción", detail: "Fuerzas en pares opuestos" },
+      {
+        id: "unidades",
+        label: "Unidades",
+        detail: "Sistema Internacional",
+        children: [
+          { id: "n", label: "Newton (N)", detail: "kg · m/s²" },
+          { id: "peso", label: "Peso", detail: "P = m · g" },
+        ],
+      },
+    ],
+  },
+  miniClass: [
+    { title: "El autobús frena", narration: "Vas parado en el autobús y frena de golpe. Tu cuerpo quiere seguir avanzando: ¡eso es la inercia!", scene: "🚌🛑🧍" },
+    { title: "Empujar carritos", narration: "Empujas con la misma fuerza un carrito vacío y uno lleno. El vacío acelera más porque tiene menos masa: F = m · a.", scene: "🛒💨🛒🐢" },
+    { title: "El cohete", narration: "El cohete expulsa gases hacia abajo y los gases empujan al cohete hacia arriba: acción y reacción.", scene: "🚀🔥⬆️" },
+    { title: "Todo junto", narration: "Las tres leyes explican desde un penalti hasta el lanzamiento de un satélite.", scene: "⚽🚀🌍" },
+  ],
+  analogies: {
+    default: "Las leyes de Newton son las reglas del juego del movimiento: dicen qué pasa cuando nadie empuja, qué pasa cuando alguien empuja y que todo empujón tiene respuesta.",
+    sports: "Al patear un balón le aplicas una fuerza que lo acelera (2.ª ley), y el balón empuja tu pie con la misma fuerza (3.ª ley): por eso duele patear una pelota muy pesada.",
+    videogames: "Los motores de física de los videojuegos calculan F = m · a en cada fotograma para que los objetos caigan, choquen y reboten de forma realista.",
+    animals: "Un pulpo nada expulsando agua con fuerza hacia atrás: el agua lo impulsa hacia adelante, igual que un cohete.",
+    technology: "Los cinturones de seguridad existen por la primera ley: en un frenazo te sujetan para que la inercia no te lance hacia adelante.",
+    cooking: "Si jalas rápido un mantel liso, los platos casi no se mueven: por inercia tienden a quedarse en reposo.",
+  },
+  glossary: [
+    { term: "Fuerza", definition: "Acción capaz de cambiar el estado de movimiento o la forma de un cuerpo; se mide en newtons (N)." },
+    { term: "Fuerza neta", definition: "Suma (vectorial) de todas las fuerzas que actúan sobre un cuerpo." },
+    { term: "Inercia", definition: "Tendencia de los cuerpos a mantener su estado de reposo o de movimiento." },
+    { term: "Masa", definition: "Cantidad de materia de un cuerpo y medida de su inercia; se mide en kilogramos (kg)." },
+    { term: "Peso", definition: "Fuerza con que un planeta atrae a un cuerpo: P = m · g." },
+  ],
+  warmUp: [
+    {
+      id: "w1",
+      prompt: "¿Qué es más difícil de empujar: un carrito de supermercado vacío o uno lleno?",
+      options: ["El vacío", "El lleno", "Cuestan lo mismo"],
+      correctIndex: 1,
+      explanation: "¡Así es! Más masa significa más inercia, así que el lleno cuesta más moverlo.",
+      concept: "inercia",
+    },
+  ],
+  quiz: [
+    {
+      id: "q1",
+      prompt: "¿Qué fuerza neta se necesita para que una masa de 2 kg acelere a 3 m/s²?",
+      options: ["1,5 N", "5 N", "6 N", "0,67 N"],
+      correctIndex: 2,
+      explanation: "F = m · a = 2 kg × 3 m/s² = 6 N.",
+      concept: "Segunda ley: F = m · a",
+    },
+    {
+      id: "q2",
+      prompt: "Una fuerza neta de 20 N actúa sobre una caja de 4 kg. ¿Cuál es su aceleración?",
+      options: ["80 m/s²", "5 m/s²", "16 m/s²", "0,2 m/s²"],
+      correctIndex: 1,
+      explanation: "a = F / m = 20 N ÷ 4 kg = 5 m/s².",
+      concept: "Segunda ley: F = m · a",
+    },
+    {
+      id: "q3",
+      prompt: "Cuando el autobús frena de golpe, los pasajeros se van hacia adelante. ¿Qué ley lo explica?",
+      options: ["Primera ley (inercia)", "Segunda ley", "Tercera ley", "Ley de Ohm"],
+      correctIndex: 0,
+      explanation: "Por inercia, el cuerpo tiende a seguir moviéndose aunque el autobús se detenga.",
+      concept: "Primera ley: inercia",
+    },
+    {
+      id: "q4",
+      prompt: "Un nadador empuja la pared de la piscina y sale impulsado hacia atrás. ¿Qué ley lo explica?",
+      options: ["Primera ley", "Segunda ley", "Tercera ley (acción y reacción)", "Ley de gravitación"],
+      correctIndex: 2,
+      explanation: "El nadador empuja la pared (acción) y la pared lo empuja con igual fuerza en sentido contrario (reacción).",
+      concept: "Tercera ley: acción y reacción",
+    },
+    {
+      id: "q5",
+      prompt: "¿Cuánto pesa en la Tierra una persona de 50 kg? (g = 9,8 m/s²)",
+      options: ["50 N", "490 N", "5,1 N", "59,8 N"],
+      correctIndex: 1,
+      explanation: "P = m · g = 50 kg × 9,8 m/s² = 490 N.",
+      concept: "El peso es una fuerza",
+    },
+  ],
+  explainPrompt: "Explica con tus palabras las tres leyes de Newton y da un ejemplo de la vida diaria para cada una.",
+  explainChecklist: ["inercia", "F = m · a", "acción y reacción", "fuerza neta"],
+  deeperResources: [
+    { title: "Leyes de Newton (artículo enciclopédico)", url: "https://es.wikipedia.org/wiki/Leyes_de_Newton", kind: "reference", source: "Wikipedia" },
+    { title: "Ejercicios sobre las leyes de Newton", url: "https://es.khanacademy.org/search?page_search_query=leyes+de+newton", kind: "interactive", source: "Khan Academy" },
+    { title: "Videos educativos sobre las leyes de Newton", url: "https://www.youtube.com/results?search_query=leyes+de+newton+explicaci%C3%B3n", kind: "video", source: "YouTube (búsqueda)" },
+  ],
+  sources: [{ title: "Leyes de Newton", url: "https://es.wikipedia.org/wiki/Leyes_de_Newton", kind: "reference", source: "Wikipedia" }],
+  relatedTopicIds: ["phys-uniform-motion", "phys-friction", "phys-gravitation", "phys-momentum"],
+};
