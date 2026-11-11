@@ -1,0 +1,160 @@
+import type { Lesson } from "../../../../domain/lesson";
+
+export const plateTectonics: Lesson = {
+  id: "earth-plate-tectonics",
+  title: "Tectónica de placas y sismos",
+  subjectId: "earth-sciences",
+  emoji: "🌋",
+  year: 5,
+  keywords: ["placas tectónicas", "tectónica", "sismos", "terremotos", "temblor", "fallas", "deriva continental", "Pangea", "epicentro", "falla de Boconó"],
+  hook: "Venezuela está justo donde se rozan dos placas gigantes: la del Caribe y la Sudamericana. Por eso en Caracas, Cumaná o Mérida de vez en cuando tiembla la tierra. ¿Qué mueve a los continentes?",
+  summary:
+    "La litosfera está dividida en grandes piezas rígidas llamadas placas tectónicas, que se mueven unos pocos centímetros por año sobre la astenosfera. En sus bordes ocurren la mayoría de los sismos y volcanes y se forman montañas y fosas oceánicas. Los límites pueden ser divergentes (las placas se separan), convergentes (chocan) o transformantes (se deslizan de lado). Un sismo es la liberación brusca de energía acumulada en una falla. El norte de Venezuela está en el límite entre las placas del Caribe y Sudamericana, con fallas activas como Boconó, San Sebastián y El Pilar.",
+  keyPoints: [
+    {
+      title: "De la deriva continental a la tectónica de placas",
+      text: "En 1912 Alfred Wegener propuso que los continentes estuvieron unidos en un supercontinente, Pangea, y se fueron separando. Se basó en el encaje de las costas de África y Sudamérica y en fósiles iguales a ambos lados del Atlántico.",
+      deeper: "Wegener no pudo explicar qué movía los continentes. En los años 60, el estudio del fondo oceánico (dorsales, expansión del fondo marino y bandas magnéticas) dio origen a la teoría de la tectónica de placas.",
+    },
+    {
+      title: "Las placas se mueven",
+      text: "Las placas se desplazan entre unos 2 y 10 cm por año, más o menos lo que crecen tus uñas. Las impulsan las corrientes del manto y el peso de las placas que se hunden.",
+    },
+    {
+      title: "Tres tipos de límites",
+      text: "Divergentes: las placas se separan y sale magma (dorsal mesoatlántica). Convergentes: chocan; una puede hundirse bajo otra (subducción) o se levantan montañas. Transformantes: se deslizan una al lado de la otra.",
+      deeper: "En la subducción, la placa oceánica, más densa, se hunde bajo otra placa; así se forman fosas oceánicas y volcanes, como en la costa pacífica de Sudamérica.",
+    },
+    {
+      title: "¿Qué es un sismo?",
+      text: "Las rocas a ambos lados de una falla se traban y acumulan tensión. Cuando se rompen de golpe, liberan energía en forma de ondas sísmicas. El punto donde se origina es el hipocentro (o foco) y el punto de la superficie justo encima es el epicentro.",
+      deeper: "La magnitud mide la energía liberada (escala de magnitud de momento, heredera de la de Richter); cada punto más equivale a unas 32 veces más energía. La intensidad (escala de Mercalli) describe los efectos observados en un lugar.",
+    },
+    {
+      title: "Venezuela, tierra de fallas",
+      text: "Entre las placas del Caribe y Sudamericana hay un límite principalmente transformante. Allí están las fallas de Boconó (Andes), San Sebastián (costa central) y El Pilar (oriente). Sismos importantes: Caracas 1967 y Cariaco 1997.",
+      deeper: "El terremoto de Cariaco (9 de julio de 1997, magnitud 6,9) se asoció a la falla de El Pilar. El de Caracas (29 de julio de 1967, magnitud cercana a 6,5) causó el colapso de varios edificios. Por eso existen normas de construcción sismorresistente y simulacros.",
+    },
+  ],
+  diagram: {
+    id: "root",
+    label: "Tectónica de placas",
+    detail: "La litosfera está rota en placas que se mueven",
+    children: [
+      {
+        id: "limites",
+        label: "Límites de placas",
+        detail: "Donde ocurre la acción",
+        children: [
+          { id: "divergente", label: "Divergente", detail: "Se separan; nace corteza nueva" },
+          { id: "convergente", label: "Convergente", detail: "Chocan; subducción y montañas" },
+          { id: "transformante", label: "Transformante", detail: "Se deslizan de lado" },
+        ],
+      },
+      {
+        id: "sismos",
+        label: "Sismos",
+        detail: "Liberación brusca de energía en una falla",
+        children: [
+          { id: "hipocentro", label: "Hipocentro y epicentro", detail: "Origen en profundidad y punto en la superficie" },
+          { id: "medida", label: "Magnitud e intensidad", detail: "Energía liberada y efectos observados" },
+        ],
+      },
+    ],
+  },
+  miniClass: [
+    { title: "Un rompecabezas que se mueve", narration: "La litosfera es como un rompecabezas de placas que flotan sobre la astenosfera y se mueven unos centímetros cada año.", scene: "🧩🌍➡️" },
+    { title: "Las placas se traban", narration: "En la falla de Boconó, en los Andes, los bloques de roca quieren deslizarse, pero se traban y acumulan tensión durante años.", scene: "🏔️🪨⏳" },
+    { title: "¡Se rompe!", narration: "De pronto la roca cede: la energía sale como ondas sísmicas desde el hipocentro y el suelo tiembla.", scene: "💥〰️🏠" },
+    { title: "Estar preparados", narration: "No podemos predecir la hora exacta de un sismo, pero sí prepararnos: construcciones seguras, mochila de emergencia y simulacros.", scene: "🎒🏫✅" },
+  ],
+  analogies: {
+    default: "Las placas son como balsas sobre un río muy lento: a veces se separan, a veces chocan y a veces se rozan al pasar.",
+    sports: "Un sismo es como cuando dos jugadores empujan hombro con hombro sin moverse… hasta que uno resbala de golpe y salen disparados.",
+    videogames: "Las placas son como bloques de un mapa que se desplazan muy despacio; la energía se acumula como una barra que se llena hasta que se libera en un \"ataque especial\": el sismo.",
+    music: "Las ondas sísmicas viajan por la Tierra como el sonido de un tambor viaja por el aire: una vibración que se propaga desde el punto del golpe.",
+    art: "Si doblas poco a poco una lámina de barro seco, se agrieta de golpe: así se rompen las rocas en una falla.",
+    cooking: "Cuando presionas dos galletas una contra otra y las deslizas, se traban y luego saltan de golpe: es el mismo mecanismo de una falla.",
+    nature: "Los Andes venezolanos, con el pico Bolívar a casi 5.000 m, existen gracias a las fuerzas que comprimen y levantan la corteza en el borde de las placas.",
+  },
+  glossary: [
+    { term: "Placa tectónica", definition: "Gran fragmento rígido de la litosfera que se desplaza lentamente." },
+    { term: "Falla", definition: "Fractura en las rocas a lo largo de la cual los bloques se han desplazado." },
+    { term: "Subducción", definition: "Proceso en el que una placa se hunde bajo otra en un límite convergente." },
+    { term: "Hipocentro", definition: "Punto en el interior de la Tierra donde se origina un sismo." },
+    { term: "Epicentro", definition: "Punto de la superficie situado justo encima del hipocentro." },
+    { term: "Magnitud", definition: "Medida de la energía liberada por un sismo." },
+  ],
+  warmUp: [
+    {
+      id: "w1",
+      prompt: "Antes de empezar: ¿los continentes siempre han estado en el mismo lugar?",
+      options: ["Sí, nunca se han movido", "No, se mueven muy lentamente"],
+      correctIndex: 1,
+      explanation: "¡Correcto! Se mueven unos centímetros por año; hace unos 200 millones de años estaban unidos en Pangea.",
+      concept: "deriva continental",
+    },
+  ],
+  quiz: [
+    {
+      id: "q1",
+      prompt: "¿Quién propuso la teoría de la deriva continental?",
+      options: ["Charles Darwin", "Alfred Wegener", "Isaac Newton", "Gregor Mendel"],
+      correctIndex: 1,
+      explanation: "Alfred Wegener la propuso en 1912 y llamó Pangea al supercontinente original.",
+      concept: "Deriva continental",
+    },
+    {
+      id: "q2",
+      prompt: "En un límite divergente, las placas…",
+      options: ["Chocan", "Se separan", "Se deslizan de lado", "No se mueven"],
+      correctIndex: 1,
+      explanation: "En los límites divergentes, como la dorsal mesoatlántica, las placas se separan y se forma corteza nueva.",
+      concept: "Límites de placas",
+    },
+    {
+      id: "q3",
+      prompt: "¿Cómo se llama el punto de la superficie situado justo encima del origen de un sismo?",
+      options: ["Hipocentro", "Epicentro", "Falla", "Dorsal"],
+      correctIndex: 1,
+      explanation: "El hipocentro está en profundidad; el epicentro es su proyección en la superficie.",
+      concept: "Sismos",
+    },
+    {
+      id: "q4",
+      prompt: "¿Entre qué placas se encuentra el norte de Venezuela?",
+      options: ["Pacífica y de Nazca", "Del Caribe y Sudamericana", "Africana y Euroasiática", "De Cocos y Norteamericana"],
+      correctIndex: 1,
+      explanation: "El norte del país está en el límite entre las placas del Caribe y Sudamericana, con fallas como Boconó, San Sebastián y El Pilar.",
+      concept: "Venezuela y las fallas",
+    },
+    {
+      id: "q5",
+      prompt: "¿Qué diferencia hay entre magnitud e intensidad de un sismo?",
+      options: [
+        "Son lo mismo",
+        "La magnitud mide la energía liberada; la intensidad, los efectos en un lugar",
+        "La magnitud mide los daños; la intensidad, la duración",
+        "La intensidad solo se usa para volcanes",
+      ],
+      correctIndex: 1,
+      explanation: "Un sismo tiene una sola magnitud, pero su intensidad cambia según el lugar donde se sienta.",
+      concept: "Sismos",
+    },
+  ],
+  explainPrompt: "Explica con tus palabras por qué en Venezuela ocurren sismos y qué pasa en una falla cuando la tierra tiembla.",
+  explainChecklist: ["placa", "Caribe", "falla", "energía", "epicentro"],
+  deeperResources: [
+    { title: "Tectónica de placas (artículo enciclopédico)", url: "https://es.wikipedia.org/wiki/Tect%C3%B3nica_de_placas", kind: "reference", source: "Wikipedia" },
+    { title: "Terremoto (artículo enciclopédico)", url: "https://es.wikipedia.org/wiki/Terremoto", kind: "reference", source: "Wikipedia" },
+    { title: "Lecciones sobre tectónica de placas", url: "https://es.khanacademy.org/search?page_search_query=tect%C3%B3nica%20de%20placas", kind: "interactive", source: "Khan Academy" },
+    { title: "Videos educativos sobre placas tectónicas y sismos", url: "https://www.youtube.com/results?search_query=placas+tect%C3%B3nicas+y+sismos+explicaci%C3%B3n", kind: "video", source: "YouTube (búsqueda)" },
+    { title: "Servicio Geológico de los Estados Unidos (sismos en el mundo)", url: "https://www.usgs.gov/", kind: "article", source: "USGS" },
+  ],
+  sources: [
+    { title: "Tectónica de placas", url: "https://es.wikipedia.org/wiki/Tect%C3%B3nica_de_placas", kind: "reference", source: "Wikipedia" },
+    { title: "Terremoto", url: "https://es.wikipedia.org/wiki/Terremoto", kind: "reference", source: "Wikipedia" },
+    { title: "U.S. Geological Survey", url: "https://www.usgs.gov/", kind: "reference", source: "USGS" },
+  ],
+  relatedTopicIds: ["earth-internal-structure", "earth-relief-venezuela", "earth-natural-hazards"],
+};
