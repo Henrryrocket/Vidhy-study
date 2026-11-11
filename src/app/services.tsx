@@ -1,5 +1,6 @@
 import { createContext, useContext, type ReactNode } from "react";
 import { CuratedContentProvider } from "../adapters/curated/CuratedContentProvider";
+import { STUDY_FOCUS } from "./focus";
 import {
   LocalStorageProfileRepository,
   LocalStorageProgressRepository,
@@ -21,7 +22,8 @@ export interface AppServices {
 
 export function createDefaultServices(): AppServices {
   return {
-    content: new CuratedContentProvider(),
+    // Focus: 2.º año of the MPPE curriculum, with 1.º año available as review.
+    content: new CuratedContentProvider(undefined, undefined, { visibleYears: STUDY_FOCUS.visibleYears }),
     generator: null,
     profiles: new LocalStorageProfileRepository(),
     settings: new LocalStorageSettingsRepository(),

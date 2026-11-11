@@ -361,3 +361,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .switch input:focus-visible + span { outline: 3px solid var(--primary); outline-offset: 2px; }
 
 .onboarding { max-width: 520px; margin: 0 auto; padding: 32px 16px; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; }
+
+.tile--soon { opacity: 0.6; cursor: default; box-shadow: none; }
+.tile--soon:hover { transform: none; }
+.tile--soon .badge { align-self: flex-start; }

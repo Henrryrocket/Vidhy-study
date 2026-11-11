@@ -86,3 +86,8 @@ export interface Lesson extends TopicInfo {
   sources: Resource[];
   relatedTopicIds: string[];
 }
+
+/** Años where the área is taught, in order. */
+export function yearsOf(subject: Subject): SchoolYear[] {
+  return (Object.keys(subject.hoursByYear).map(Number) as SchoolYear[]).sort((a, b) => a - b);
+}

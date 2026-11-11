@@ -23,6 +23,7 @@ npm run dev
 | `npm test`          | Unit tests (Vitest + jsdom)     |
 | `npm run typecheck` | TypeScript check                |
 | `npm run build`     | Typecheck and production build  |
+| `npm run check:sources` | Check that every source URL responds |
 
 ## Architecture
 
@@ -40,9 +41,15 @@ src/
   app/           Composition root (services), router, shell
 ```
 
+## Curriculum and focus
+
+The encyclopedia follows the áreas de formación of Venezuela's Educación Media General study plan (Resolución DM/0033, Gaceta Oficial N.º 41.221, 2017), with weekly hours per año in `src/adapters/curated/subjects.ts`. Each área lives in `src/adapters/curated/areas/<area>/`: `index.ts` holds its topic catalog per año and the list of complete lessons; topics without a lesson show as "Próximamente".
+
+The app is focused on **2.º año**, with **1.º año** available as review ("Repaso"). Content for 3.º–5.º año stays in the catalog but is hidden. Change the focus in `src/app/focus.ts`.
+
 ## Adding a topic
 
-Create an article in `src/adapters/curated/articles/` following the `Lesson` type in `src/domain/lesson.ts`, then register it in `ARTICLES` inside `CuratedContentProvider.ts`. The content integrity test checks that every article cites `https` sources and has valid quiz answers. Optionally add an illustration in `src/features/study/TopicIllustration.tsx`.
+Add the topic to its área's catalog (`areas/<area>/index.ts`), write the lesson in the same folder following the `Lesson` type in `src/domain/lesson.ts`, and list it in `lessons`. The catalog tests check that every lesson is complete, matches its catalog entry and cites `https` sources; `npm run check:sources` checks that every source URL responds. Optionally add an illustration in `src/features/study/TopicIllustration.tsx`.
 
 ## Superpowers (AI) switch
 

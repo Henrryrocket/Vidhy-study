@@ -77,3 +77,34 @@ describe("lesson quality", () => {
     expect(lesson.relatedTopicIds.every((id) => topicIds.has(id))).toBe(true);
   });
 });
+
+describe("2.º año focus (visibleYears)", () => {
+  const focused = new CuratedContentProvider(AREAS, SUBJECTS, { visibleYears: [1, 2] });
+
+  it("only lists áreas taught in a visible año", async () => {
+    const ids = (await focused.listSubjects()).map((s) => s.id);
+    expect(ids).toContain("natural-sciences");
+    expect(ids).not.toContain("physics");
+    expect(ids).not.toContain("national-sovereignty");
+  });
+
+  it("only lists, searches and opens topics of visible años", async () => {
+    expect((await focused.listTopics()).every((t) => t.year <= 2)).toBe(true);
+    expect(await focused.search("sistema nervioso")).toEqual([]);
+    expect(await focused.getLesson("nervous-system", profile)).toBeNull();
+    expect(await focused.getLesson("fractions", profile)).not.toBeNull();
+  });
+
+  it("keeps hours only for visible años", async () => {
+    const math = (await focused.listSubjects()).find((s) => s.id === "mathematics")!;
+    expect(Object.keys(math.hoursByYear)).toEqual(["1", "2"]);
+  });
+
+  it.each(SUBJECTS.filter((s) => s.hoursByYear[2]).map((s) => [s.name, s.id]))(
+    "%s: has at least 2 complete lessons in 2.º año",
+    (_name, id) => {
+      const area = AREAS.find((a) => a.subjectId === id)!;
+      expect(area.lessons.filter((l) => l.year === 2).length).toBeGreaterThanOrEqual(2);
+    },
+  );
+});

@@ -62,7 +62,7 @@ export function App() {
       </nav>
       <main className="main">
         {route.name === "home" && <Home profile={profile} settings={settings} />}
-        {route.name === "encyclopedia" && <Encyclopedia subjectId={route.subjectId} />}
+        {route.name === "encyclopedia" && <Encyclopedia subjectId={route.subjectId} profile={profile} />}
         {route.name === "topic" && <StudyFlow key={route.topicId} topicId={route.topicId} profile={profile} />}
         {route.name === "profile" && (
           <ProfilePage

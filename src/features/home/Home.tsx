@@ -4,11 +4,13 @@ import { useServices } from "../../app/services";
 import { localIsoDate } from "../../domain/dates";
 import { lookupTopic, type LookupResult } from "../../application/topicLookup";
 import type { Subject } from "../../domain/lesson";
+import { STUDY_FOCUS } from "../../app/focus";
 import type { Settings, StudentProfile } from "../../domain/profile";
 import { TopicTile } from "../../ui/TopicTile";
+import { yearLabel, yearRange } from "../../ui/years";
 import { useAsync } from "../../ui/useAsync";
 
-const SUGGESTIONS = ["Sistema nervioso", "Fotosíntesis", "Fracciones", "Ciclo del agua"];
+
 
 
 export function Home({ profile, settings }: { profile: StudentProfile; settings: Settings }) {
@@ -24,8 +26,12 @@ export function Home({ profile, settings }: { profile: StudentProfile; settings:
 
   const subjectById = new Map(data?.subjects.map((s) => [s.id, s]));
   const topicById = new Map(data?.topics.map((t) => [t.id, t]));
-  const progress = services.progress.list();
+  // Progress of hidden topics (outside the focus años) is kept but not shown.
+  const progress = services.progress.list().filter((p) => topicById.has(p.topicId));
   const dueReviews = progress.filter((p) => p.nextReviews?.some((d) => d <= localIsoDate()));
+  const withLesson = (data?.topics ?? []).filter((t) => t.hasLesson);
+  const mainTopics = withLesson.filter((t) => t.year === STUDY_FOCUS.mainYear);
+  const reviewTopics = withLesson.filter((t) => STUDY_FOCUS.reviewYears.includes(t.year));
   const recent = [...progress].sort((a, b) => b.lastStudiedAt.localeCompare(a.lastStudiedAt)).slice(0, 4);
 
   const search = async (text: string) => {
@@ -39,7 +45,7 @@ export function Home({ profile, settings }: { profile: StudentProfile; settings:
       generator: services.generator,
     });
     setSearching(false);
-    if (found.kind === "matches" && found.topics.length === 1) {
+    if (found.kind === "matches" && found.topics.length === 1 && found.topics[0].hasLesson) {
       navigate({ name: "topic", topicId: found.topics[0].id });
       return;
     }
@@ -64,7 +70,7 @@ export function Home({ profile, settings }: { profile: StudentProfile; settings:
         <form className="search" role="search" onSubmit={onSubmit}>
           <input
             aria-label="Tema que quieres estudiar"
-            placeholder="Ej.: el sistema nervioso"
+            placeholder={mainTopics[0] ? `Ej.: ${mainTopics[0].title.toLowerCase()}` : "Escribe un tema"}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             enterKeyHint="search"
@@ -74,7 +80,7 @@ export function Home({ profile, settings }: { profile: StudentProfile; settings:
           </button>
         </form>
         <div className="row" style={{ marginTop: 12 }}>
-          {SUGGESTIONS.map((s) => (
+          {mainTopics.slice(0, 4).map((t) => t.title).map((s) => (
             <button
               key={s}
               type="button"
@@ -127,17 +133,41 @@ export function Home({ profile, settings }: { profile: StudentProfile; settings:
         </>
       )}
 
+      {mainTopics.length > 0 && (
+        <>
+          <h2 className="section-title">⭐ Temas de {yearLabel(STUDY_FOCUS.mainYear)}</h2>
+          <div className="grid">
+            {mainTopics.map((t) => (
+              <TopicTile key={t.id} topic={t} subject={subjectById.get(t.subjectId)} />
+            ))}
+          </div>
+        </>
+      )}
+
+      {reviewTopics.length > 0 && (
+        <>
+          <h2 className="section-title">🔁 Repaso del año anterior</h2>
+          <p className="muted small">Temas de {STUDY_FOCUS.reviewYears.map(yearLabel).join(" y ")} para reforzar las bases.</p>
+          <div className="grid">
+            {reviewTopics.map((t) => (
+              <TopicTile key={t.id} topic={t} subject={subjectById.get(t.subjectId)} showYear />
+            ))}
+          </div>
+        </>
+      )}
+
       <h2 className="section-title">Explora la enciclopedia</h2>
       <div className="grid">
         {data?.subjects.map((subject) => {
-          const count = data.topics.filter((t) => t.subjectId === subject.id).length;
+          const count = data.topics.filter((t) => t.subjectId === subject.id && t.hasLesson).length;
           return (
             <a key={subject.id} className="tile" href={href({ name: "encyclopedia", subjectId: subject.id })} style={{ borderTop: `5px solid ${subject.color}` }}>
               <span className="tile__emoji" aria-hidden>
                 {subject.emoji}
               </span>
               <span className="tile__title">{subject.name}</span>
-              <span className="small muted">{count > 0 ? `${count} ${count === 1 ? "tema" : "temas"}` : "Próximamente"}</span>
+              <span className="small muted">{yearRange(subject)}</span>
+              <span className="small muted">{count > 0 ? `${count} ${count === 1 ? "lección" : "lecciones"}` : "Próximamente"}</span>
             </a>
           );
         })}
@@ -161,7 +191,7 @@ function SearchResult({
         <h2>Encontramos estos temas</h2>
         <div className="grid">
           {result.topics.map((t) => (
-            <TopicTile key={t.id} topic={t} subject={topicSubjects.get(t.subjectId)} />
+            <TopicTile key={t.id} topic={t} subject={topicSubjects.get(t.subjectId)} showYear />
           ))}
         </div>
       </section>
