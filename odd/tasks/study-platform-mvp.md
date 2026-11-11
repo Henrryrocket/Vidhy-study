@@ -25,8 +25,8 @@ Assumptions: UI copy in neutral Spanish (audience and quoted strings are Spanish
 - [x] T1 (S1) Scaffold Vite + React + TS — inline.
 - [x] T2 (S7, S8, S9, S11) Domain + ports + localStorage adapters, test-first (RED observed: missing modules; GREEN 26/26) — inline.
 - [x] T3 (S3, S5, S6, S10, S11, S12) Curated encyclopedia: 4 articles with sources + lookupTopic superpowers service (RED: missing module; GREEN 33/33) — inline.
-- [ ] T4 (S2, S4, S5, S6, S7, S9, S12) UI: onboarding, home, encyclopedia, study setup, lesson, quiz, results, settings with superpowers switch — inline.
-- [ ] T5 (all) Tests, typecheck, build, browser verification at mobile and desktop widths — inline.
+- [x] T4 (S2, S4, S5, S6, S7, S9, S12) UI: onboarding, home, encyclopedia, study setup, lesson, quiz, results, settings with superpowers switch; explain-it-back and local dates test-first (RED observed) — inline.
+- [x] T5 (all) 46/46 tests, typecheck and build clean; browser walkthrough of the L1 example at 375px and desktop — inline.
 
 Route evidence: no Writer trigger (one sequential behavior chain, no parallel units); all inline.
 
@@ -38,3 +38,5 @@ Route evidence: no Writer trigger (one sequential behavior chain, no parallel un
 - L4 (2026-11-10) User: "¿Estamos usando ODD en este proyecto?" → feature document created late (after T2); commits blocked: not a git repo.
 - L5 Node 25 global localStorage shadows jsdom's; fixed with in-memory Storage in src/test/setup.ts.
 - L6 (2026-11-10) User: "Usa engram y gentle-ai por favor" → git initialized, work-unit commits started; RDD on (global). Engram mirror blocked: auto mode cannot review mem_save because a hook rewrites its input.
+- L7 (2026-11-10) Browser verification (13-year-old, 8th grade, sports, exam on nervous system): search "examen del sistema nervioso" opens the article; deeper sections open for grade 8; sports analogy shown; explain-it-back flags missing "músculo, cerebro"; quiz 4/5 → 80% mastered, review dates 13/17/24 Nov persisted; superpowers off → not-found, on → "aún no conectados"; profile and progress survive reload; no console errors. Fixed during verification: step change did not scroll to top; concept map unreadable at 375px (now vertical tree); mini-class caption covered the scene; UTC date shift (now local dates).
+- Next: connect a LessonGenerator through a backend endpoint (S11, S12); add more articles per subject.

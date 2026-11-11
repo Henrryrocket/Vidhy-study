@@ -1,0 +1,55 @@
+# Easy Homework
+
+A mobile-first study encyclopedia for students aged 10–18. Students create a profile (age, grade, interests), answer "¿Qué estudiaremos hoy?", and go through a guided study flow:
+
+1. **Setup** – why they are studying (exam, homework, curiosity), what they already know, and ungraded warm-up questions.
+2. **Lesson** – illustrated summary, key ideas with optional depth, interactive concept map, a narrated animated mini-class, an analogy based on their interests, and a glossary.
+3. **Explain it back** – the student explains the topic in their own words (Feynman technique) and gets feedback on the key ideas they used.
+4. **Quiz** – one question at a time with immediate explained feedback (retrieval practice).
+5. **Results** – mastery level, concepts to reinforce, a spaced-repetition review plan (compressed before an exam date), resources to go deeper, and sources.
+
+Profile, settings and progress are stored only in the browser (`localStorage`).
+
+## Getting started
+
+```bash
+npm install
+npm run dev
+```
+
+| Script              | What it does                    |
+| ------------------- | ------------------------------- |
+| `npm run dev`       | Development server              |
+| `npm test`          | Unit tests (Vitest + jsdom)     |
+| `npm run typecheck` | TypeScript check                |
+| `npm run build`     | Typecheck and production build  |
+
+## Architecture
+
+Hexagonal: the domain and the UI only depend on ports, so content sources can change without touching screens.
+
+```
+src/
+  domain/        Pure rules: profile validation, search, quiz scoring, spaced review, explanation review
+  ports/         Interfaces: ContentProvider, LessonGenerator, Profile/Settings/Progress repositories
+  application/   Use cases: lookupTopic (encyclopedia first, superpowers fallback)
+  adapters/
+    curated/     The built-in encyclopedia (hand-written articles with sources)
+    storage/     localStorage repositories
+  features/      Screens: onboarding, home, encyclopedia, study flow, profile
+  app/           Composition root (services), router, shell
+```
+
+## Adding a topic
+
+Create an article in `src/adapters/curated/articles/` following the `Lesson` type in `src/domain/lesson.ts`, then register it in `ARTICLES` inside `CuratedContentProvider.ts`. The content integrity test checks that every article cites `https` sources and has valid quiz answers. Optionally add an illustration in `src/features/study/TopicIllustration.tsx`.
+
+## Superpowers (AI) switch
+
+The profile screen has a **Superpowers** switch. When it is on and a topic is not in the encyclopedia, `lookupTopic` asks a `LessonGenerator` to create a lesson. No generator is connected yet, so the app tells the student and keeps using the encyclopedia.
+
+To connect one:
+
+1. Implement `LessonGenerator` (`src/ports/index.ts`) in a new adapter, e.g. `src/adapters/ai/`. It must return a complete `Lesson`, including `sources`.
+2. Call the model from a **backend endpoint**, never from the browser: API keys must not ship in the frontend bundle.
+3. Assign it to `generator` in `createDefaultServices()` (`src/app/services.tsx`).
