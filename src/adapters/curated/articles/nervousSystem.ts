@@ -1,0 +1,165 @@
+import type { Lesson } from "../../../domain/lesson";
+
+export const nervousSystem: Lesson = {
+  id: "nervous-system",
+  title: "El sistema nervioso",
+  subjectId: "biology",
+  emoji: "🧠",
+  minGrade: 6,
+  keywords: ["neurona", "neuronas", "cerebro", "médula espinal", "nervios", "reflejo", "sinapsis", "encéfalo", "SNC", "SNP"],
+  hook: "Tocas algo caliente y retiras la mano antes de pensar \"¡quema!\". ¿Cómo lo hace tu cuerpo tan rápido? Esa es la magia del sistema nervioso.",
+  summary:
+    "El sistema nervioso es la red de comunicación del cuerpo. Recibe información (estímulos), la procesa y envía órdenes a músculos y glándulas. Se divide en el sistema nervioso central (encéfalo y médula espinal), que procesa y decide, y el sistema nervioso periférico (nervios), que lleva y trae mensajes. Su unidad básica es la neurona, una célula que transmite señales eléctricas y químicas.",
+  keyPoints: [
+    {
+      title: "Tres funciones: sentir, procesar, responder",
+      text: "Los receptores (en piel, ojos, oídos…) captan estímulos; el sistema nervioso central los interpreta; y los efectores (músculos y glándulas) responden.",
+      deeper: "Este circuito se llama arco estímulo-respuesta. Las vías que llevan información hacia el SNC son aferentes (sensitivas) y las que salen hacia los efectores son eferentes (motoras).",
+    },
+    {
+      title: "Sistema nervioso central (SNC)",
+      text: "Lo forman el encéfalo (cerebro, cerebelo y tronco encefálico) y la médula espinal. Está protegido por el cráneo, la columna vertebral y las meninges.",
+      deeper: "El cerebro controla el pensamiento, la memoria y el movimiento voluntario; el cerebelo coordina el equilibrio y la precisión de los movimientos; el tronco encefálico regula funciones vitales como la respiración y el ritmo cardíaco.",
+    },
+    {
+      title: "Sistema nervioso periférico (SNP)",
+      text: "Son los nervios que salen del encéfalo (nervios craneales) y de la médula (nervios raquídeos) y llegan a todo el cuerpo.",
+      deeper: "Se divide en somático (movimientos voluntarios, como patear un balón) y autónomo (funciones involuntarias, como la digestión). El autónomo tiene dos partes: simpático (prepara para la acción: \"lucha o huida\") y parasimpático (reposo y digestión).",
+    },
+    {
+      title: "La neurona",
+      text: "Es la célula que transmite los mensajes. Tiene dendritas (reciben la señal), cuerpo celular (la procesa) y axón (la envía). Muchas tienen una capa de mielina que acelera la señal.",
+      deeper: "La señal viaja por el axón como impulso eléctrico. Al llegar al final, la neurona libera neurotransmisores en un pequeño espacio llamado sinapsis, que activan a la siguiente célula.",
+    },
+    {
+      title: "Los actos reflejos",
+      text: "Son respuestas rápidas e involuntarias. En muchos reflejos la médula espinal da la orden antes de que el cerebro se entere, por eso son tan veloces.",
+      deeper: "El arco reflejo incluye receptor, neurona sensitiva, centro (en la médula), neurona motora y efector. El reflejo rotuliano (el golpecito en la rodilla) es un ejemplo clásico.",
+    },
+  ],
+  diagram: {
+    id: "root",
+    label: "Sistema nervioso",
+    detail: "Red de comunicación del cuerpo",
+    children: [
+      {
+        id: "snc",
+        label: "Central (SNC)",
+        detail: "Procesa y decide",
+        children: [
+          { id: "encefalo", label: "Encéfalo", detail: "Cerebro, cerebelo y tronco encefálico" },
+          { id: "medula", label: "Médula espinal", detail: "Conecta encéfalo y cuerpo; controla reflejos" },
+        ],
+      },
+      {
+        id: "snp",
+        label: "Periférico (SNP)",
+        detail: "Lleva y trae mensajes",
+        children: [
+          { id: "somatico", label: "Somático", detail: "Movimientos voluntarios" },
+          { id: "autonomo", label: "Autónomo", detail: "Funciones automáticas: simpático y parasimpático" },
+        ],
+      },
+    ],
+  },
+  miniClass: [
+    { title: "Un estímulo", narration: "Tu mano toca una taza muy caliente. Los receptores de la piel detectan el calor.", scene: "✋☕🔥" },
+    { title: "El mensaje viaja", narration: "Una neurona sensitiva lleva la señal eléctrica a gran velocidad hasta la médula espinal.", scene: "✋⚡🦴" },
+    { title: "La médula decide", narration: "La médula espinal responde de inmediato con una orden: ¡retira la mano!", scene: "🦴💡💪" },
+    { title: "El cerebro se entera", narration: "Un instante después, la señal llega al cerebro y sientes el dolor. ¡El reflejo ya te protegió!", scene: "🧠😮👍" },
+  ],
+  analogies: {
+    default: "El sistema nervioso es como la red de internet de una ciudad: los cables (nervios) llevan mensajes y el centro de datos (encéfalo) los procesa.",
+    sports: "Es como un equipo de fútbol: los nervios son los jugadores que pasan el balón (la señal) y el cerebro es el entrenador que decide la jugada. Los reflejos son el portero que ataja sin pensarlo.",
+    videogames: "Es como tu control y la consola: presionas un botón (estímulo), la señal viaja por el cable (nervio) y la consola (cerebro) hace que tu personaje reaccione.",
+    music: "Es como una orquesta: el director (cerebro) da indicaciones y cada músico (músculo) responde. Los nervios son las miradas y gestos que llevan las señales.",
+    technology: "Es como un robot: los sensores (receptores) captan datos, el procesador (SNC) decide y los motores (músculos) ejecutan.",
+    animals: "Como una colonia de hormigas que se avisan con señales químicas, las neuronas se pasan mensajes con neurotransmisores.",
+    art: "Imagina un mural pintado entre muchos artistas: cada uno (neurona) pasa la idea al siguiente y el director artístico (cerebro) da sentido a la obra completa.",
+  },
+  glossary: [
+    { term: "Estímulo", definition: "Cambio en el ambiente que el cuerpo puede detectar (luz, sonido, calor…)." },
+    { term: "Neurona", definition: "Célula especializada en transmitir impulsos nerviosos." },
+    { term: "Sinapsis", definition: "Zona de comunicación entre una neurona y otra célula." },
+    { term: "Mielina", definition: "Capa aislante que recubre algunos axones y acelera la señal." },
+    { term: "Reflejo", definition: "Respuesta rápida e involuntaria ante un estímulo." },
+  ],
+  warmUp: [
+    {
+      id: "w1",
+      prompt: "Antes de empezar: ¿qué órgano crees que controla el pensamiento?",
+      options: ["El corazón", "El cerebro", "El estómago"],
+      correctIndex: 1,
+      explanation: "¡Así es! El cerebro, parte del encéfalo, controla el pensamiento y la memoria.",
+      concept: "snc",
+    },
+    {
+      id: "w2",
+      prompt: "¿Crees que todas tus reacciones pasan primero por el cerebro?",
+      options: ["Sí, siempre", "No, algunas no"],
+      correctIndex: 1,
+      explanation: "Muchos reflejos los resuelve la médula espinal. Lo veremos en la mini-clase.",
+      concept: "reflejos",
+    },
+  ],
+  quiz: [
+    {
+      id: "q1",
+      prompt: "¿Qué estructuras forman el sistema nervioso central?",
+      options: ["Los nervios y los músculos", "El encéfalo y la médula espinal", "El corazón y los pulmones", "Los nervios craneales"],
+      correctIndex: 1,
+      explanation: "El SNC está formado por el encéfalo y la médula espinal. Los nervios forman el periférico.",
+      concept: "Partes del SNC",
+    },
+    {
+      id: "q2",
+      prompt: "¿Qué parte de la neurona envía la señal hacia otras células?",
+      options: ["Las dendritas", "El núcleo", "El axón", "La mielina"],
+      correctIndex: 2,
+      explanation: "El axón conduce el impulso hacia afuera. Las dendritas lo reciben.",
+      concept: "La neurona",
+    },
+    {
+      id: "q3",
+      prompt: "Retiras la mano de algo caliente sin pensarlo. ¿Dónde se generó la orden?",
+      options: ["En la médula espinal", "En el cerebelo", "En el estómago", "En los ojos"],
+      correctIndex: 0,
+      explanation: "En un acto reflejo, la médula espinal da la orden antes de que el cerebro procese el dolor.",
+      concept: "Actos reflejos",
+    },
+    {
+      id: "q4",
+      prompt: "Corres porque viste un perro bravo y tu corazón late rápido. ¿Qué parte actuó en el latido?",
+      options: ["El sistema somático", "El sistema simpático", "El sistema parasimpático", "El cerebelo"],
+      correctIndex: 1,
+      explanation: "El simpático prepara al cuerpo para la acción (\"lucha o huida\"): acelera el corazón.",
+      concept: "Sistema autónomo",
+    },
+    {
+      id: "q5",
+      prompt: "¿Qué ocurre en la sinapsis?",
+      options: [
+        "Se fabrica la sangre",
+        "Una neurona pasa el mensaje a otra célula mediante neurotransmisores",
+        "Se forma la mielina",
+        "Se digiere el alimento",
+      ],
+      correctIndex: 1,
+      explanation: "En la sinapsis se liberan neurotransmisores que transmiten la señal.",
+      concept: "La neurona",
+    },
+  ],
+  explainPrompt: "Explica con tus palabras, como si se lo contaras a un amigo de 8 años, qué pasa en tu cuerpo cuando tocas algo caliente.",
+  explainChecklist: ["receptor", "neurona", "médula", "músculo", "cerebro"],
+  deeperResources: [
+    { title: "Sistema nervioso (artículo enciclopédico)", url: "https://es.wikipedia.org/wiki/Sistema_nervioso", kind: "reference", source: "Wikipedia" },
+    { title: "Lecciones y ejercicios sobre el sistema nervioso", url: "https://es.khanacademy.org/search?page_search_query=sistema%20nervioso", kind: "interactive", source: "Khan Academy" },
+    { title: "Videos educativos sobre el sistema nervioso", url: "https://www.youtube.com/results?search_query=sistema+nervioso+explicaci%C3%B3n+educativa", kind: "video", source: "YouTube (búsqueda)" },
+    { title: "Información de salud sobre el cerebro y los nervios", url: "https://medlineplus.gov/spanish/", kind: "article", source: "MedlinePlus (Biblioteca Nacional de Medicina de EE. UU.)" },
+  ],
+  sources: [
+    { title: "Sistema nervioso", url: "https://es.wikipedia.org/wiki/Sistema_nervioso", kind: "reference", source: "Wikipedia" },
+    { title: "MedlinePlus en español", url: "https://medlineplus.gov/spanish/", kind: "reference", source: "U.S. National Library of Medicine" },
+  ],
+  relatedTopicIds: ["photosynthesis"],
+};
