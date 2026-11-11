@@ -1,0 +1,136 @@
+import type { Lesson } from "../../../../domain/lesson";
+
+export const physicalCapacities: Lesson = {
+  id: "pe-physical-capacities",
+  title: "Las capacidades físicas",
+  subjectId: "physical-education",
+  emoji: "💪",
+  year: 2,
+  keywords: ["capacidades físicas", "capacidades físicas básicas", "fuerza", "resistencia", "velocidad", "flexibilidad", "condición física", "aeróbico", "anaeróbico"],
+  hook: "Un maratonista, un velocista, una gimnasta y un levantador de pesas son atletas, pero cada uno destaca en algo distinto. ¿Qué tienen de diferente? Cada uno ha desarrollado más una capacidad física.",
+  summary:
+    "Las capacidades físicas básicas son las cualidades que determinan la condición física de una persona: la resistencia, la fuerza, la velocidad y la flexibilidad. La resistencia permite mantener un esfuerzo durante mucho tiempo; la fuerza, vencer u oponerse a una carga; la velocidad, hacer movimientos en el menor tiempo posible; y la flexibilidad, mover las articulaciones con amplitud. Todas se pueden mejorar con práctica regular, progresiva y adaptada a la edad, y se combinan en casi cualquier deporte.",
+  keyPoints: [
+    {
+      title: "Resistencia",
+      text: "Es la capacidad de mantener un esfuerzo durante el mayor tiempo posible retrasando el cansancio. Se mejora con actividades continuas como trotar, nadar, montar bicicleta o bailar.",
+      deeper: "La resistencia aeróbica se usa en esfuerzos largos y moderados, con suficiente oxígeno (por ejemplo, trotar 20 minutos). La anaeróbica se usa en esfuerzos cortos e intensos, como un sprint de 30 segundos.",
+    },
+    {
+      title: "Fuerza",
+      text: "Es la capacidad de vencer, sostener u oponerse a una resistencia o carga mediante la contracción de los músculos. A tu edad se trabaja con el propio peso del cuerpo: sentadillas, abdominales, planchas, saltos.",
+      deeper: "Hay fuerza máxima (mover la mayor carga posible), fuerza explosiva (aplicar fuerza muy rápido, como en un salto) y fuerza resistencia (repetir un esfuerzo muchas veces). En la adolescencia conviene priorizar la buena técnica sobre el peso.",
+    },
+    {
+      title: "Velocidad",
+      text: "Es la capacidad de realizar movimientos o desplazamientos en el menor tiempo posible. Incluye reaccionar rápido a una señal, como la salida de una carrera.",
+      deeper: "Se distinguen la velocidad de reacción (responder a un estímulo, como el disparo de salida), la velocidad de desplazamiento (recorrer una distancia rápido) y la velocidad gestual (hacer un movimiento rápido, como un remate).",
+    },
+    {
+      title: "Flexibilidad",
+      text: "Es la capacidad de mover las articulaciones con la mayor amplitud posible sin lastimarse. Se mejora con estiramientos suaves, mantenidos y sin rebotes.",
+      deeper: "La flexibilidad tiende a disminuir con la edad si no se practica. Un estiramiento debe sentirse como tensión agradable, nunca como dolor.",
+    },
+  ],
+  diagram: {
+    id: "root",
+    label: "Capacidades físicas básicas",
+    detail: "Determinan la condición física",
+    children: [
+      { id: "resistencia", label: "Resistencia", detail: "Mantener un esfuerzo largo tiempo (aeróbica y anaeróbica)" },
+      { id: "fuerza", label: "Fuerza", detail: "Vencer u oponerse a una carga" },
+      { id: "velocidad", label: "Velocidad", detail: "Moverse en el menor tiempo posible" },
+      { id: "flexibilidad", label: "Flexibilidad", detail: "Mover las articulaciones con amplitud" },
+    ],
+  },
+  miniClass: [
+    { title: "El trote largo", narration: "Trotar 15 minutos a ritmo cómodo trabaja la resistencia aeróbica: puedes hablar mientras corres.", scene: "🏃‍♀️⏱️🫁" },
+    { title: "Sentadillas", narration: "Hacer sentadillas con buena técnica usa el peso de tu cuerpo para trabajar la fuerza de las piernas.", scene: "🦵💪🔁" },
+    { title: "¡En sus marcas!", narration: "Salir corriendo al oír un silbato trabaja la velocidad de reacción y de desplazamiento.", scene: "📣⚡🏁" },
+    { title: "Estirar sin rebotar", narration: "Al final, estira con suavidad y mantén cada posición unos segundos: así mejoras la flexibilidad.", scene: "🧘🤸✨" },
+  ],
+  analogies: {
+    default: "Las capacidades físicas son como las baterías, el motor, el acelerador y las bisagras de un carro: cada una cumple una función distinta y juntas hacen que funcione bien.",
+    sports: "En el fútbol las usas todas: resistencia para correr 90 minutos, fuerza para patear, velocidad para ganar el balón y flexibilidad para estirarte a atajar.",
+    videogames: "Son como las estadísticas de un personaje: aguante (resistencia), ataque (fuerza), agilidad (velocidad) y alcance (flexibilidad). Entrenar es subir esos puntos.",
+    animals: "El guepardo es campeón de velocidad, el elefante de fuerza, el camello de resistencia y el gato de flexibilidad.",
+    music: "Es como una banda: la batería marca el ritmo constante (resistencia), el bajo da potencia (fuerza), la guitarra hace solos rápidos (velocidad) y el cantante alcanza notas amplias (flexibilidad).",
+    technology: "Es como un teléfono: la batería (resistencia), el procesador potente (fuerza), la velocidad de respuesta (velocidad) y la pantalla que se adapta a todo (flexibilidad).",
+  },
+  glossary: [
+    { term: "Condición física", definition: "Nivel de desarrollo de las capacidades físicas de una persona." },
+    { term: "Resistencia aeróbica", definition: "Capacidad de mantener un esfuerzo moderado y prolongado con suficiente oxígeno." },
+    { term: "Resistencia anaeróbica", definition: "Capacidad de mantener un esfuerzo corto y muy intenso." },
+    { term: "Fuerza explosiva", definition: "Capacidad de aplicar mucha fuerza en muy poco tiempo, como en un salto." },
+    { term: "Amplitud de movimiento", definition: "Recorrido que puede hacer una articulación." },
+  ],
+  warmUp: [
+    {
+      id: "w1",
+      prompt: "Un maratonista corre 42 km. ¿Qué capacidad necesita sobre todo?",
+      options: ["Flexibilidad", "Resistencia", "Fuerza máxima"],
+      correctIndex: 1,
+      explanation: "Para mantener un esfuerzo tan largo, la capacidad clave es la resistencia.",
+      concept: "resistencia",
+    },
+  ],
+  quiz: [
+    {
+      id: "q1",
+      prompt: "¿Qué capacidad física permite mantener un esfuerzo el mayor tiempo posible?",
+      options: ["Velocidad", "Flexibilidad", "Resistencia", "Fuerza"],
+      correctIndex: 2,
+      explanation: "La resistencia retrasa la aparición del cansancio en esfuerzos prolongados.",
+      concept: "Resistencia",
+    },
+    {
+      id: "q2",
+      prompt: "Un sprint de 100 metros a máxima intensidad es sobre todo un esfuerzo…",
+      options: ["Aeróbico", "Anaeróbico", "De flexibilidad", "De vuelta a la calma"],
+      correctIndex: 1,
+      explanation: "Los esfuerzos cortos y muy intensos son anaeróbicos.",
+      concept: "Resistencia",
+    },
+    {
+      id: "q3",
+      prompt: "Responder lo más rápido posible al silbato de salida trabaja la velocidad de…",
+      options: ["Reacción", "Flexibilidad", "Resistencia", "Fuerza máxima"],
+      correctIndex: 0,
+      explanation: "La velocidad de reacción es responder rápido a un estímulo, como un sonido.",
+      concept: "Velocidad",
+    },
+    {
+      id: "q4",
+      prompt: "¿Cómo deben hacerse los estiramientos para mejorar la flexibilidad?",
+      options: [
+        "Con rebotes fuertes",
+        "Hasta sentir dolor intenso",
+        "Suaves, mantenidos y sin rebotes",
+        "Solo con el cuerpo frío, antes de calentar",
+      ],
+      correctIndex: 2,
+      explanation: "Los estiramientos seguros son suaves y mantenidos; el dolor indica que debes parar.",
+      concept: "Flexibilidad",
+    },
+    {
+      id: "q5",
+      prompt: "¿Qué ejercicio trabaja la fuerza usando el peso del propio cuerpo?",
+      options: ["Trotar suave 20 minutos", "Sentadillas", "Estirar el cuello", "Caminar despacio"],
+      correctIndex: 1,
+      explanation: "Las sentadillas usan el peso corporal como carga para fortalecer las piernas.",
+      concept: "Fuerza",
+    },
+  ],
+  explainPrompt: "Explica con tus palabras las cuatro capacidades físicas básicas y da un ejercicio para mejorar cada una.",
+  explainChecklist: ["resistencia", "fuerza", "velocidad", "flexibilidad", "ejercicio"],
+  deeperResources: [
+    { title: "Condición física", url: "https://es.wikipedia.org/wiki/Condici%C3%B3n_f%C3%ADsica", kind: "reference", source: "Wikipedia" },
+    { title: "Organización Mundial de la Salud", url: "https://www.who.int/es", kind: "article", source: "OMS" },
+    { title: "Videos sobre capacidades físicas básicas", url: "https://www.youtube.com/results?search_query=capacidades+f%C3%ADsicas+b%C3%A1sicas+educaci%C3%B3n+f%C3%ADsica", kind: "video", source: "YouTube (búsqueda)" },
+  ],
+  sources: [
+    { title: "Condición física", url: "https://es.wikipedia.org/wiki/Condici%C3%B3n_f%C3%ADsica", kind: "reference", source: "Wikipedia" },
+    { title: "Actividad física", url: "https://es.wikipedia.org/wiki/Actividad_f%C3%ADsica", kind: "reference", source: "Wikipedia" },
+  ],
+  relatedTopicIds: ["pe-warmup-healthy-habits", "pe-athletics", "pe-training-principles"],
+};
